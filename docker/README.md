@@ -7,5 +7,19 @@ docker commit 64e13905c460  sam2_realtime_saved:v1"
 4. Changed the file "sam2_realtime.sh" to run right docker image
 
 
+# Docker
 Attach to the running container
 docker exec -it <container_name_or_id> bash
+
+
+# Github
+List remote connections to Github
+git remote -v
+
+Pull from the original repo
+git pull origin main
+
+Push
+git push origin main  # Push to the original repository
+git push mysam2 main  # Push to your new repository
+
