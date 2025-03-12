@@ -11,6 +11,9 @@ docker commit 64e13905c460  sam2_realtime_saved:v1"
 Attach to the running container
 docker exec -it <container_name_or_id> bash
 
+Save container into new image
+docker commit <CONTAINER_ID> <new_image_name>:<tag>
+docker commit 4014408ef9cb  sam2_realtime_saved:v2
 
 # Github
 List remote connections to Github
@@ -22,4 +25,5 @@ git pull origin main
 Push
 git push origin main  # Push to the original repository
 git push mysam2 main  # Push to your new repository
+
 
