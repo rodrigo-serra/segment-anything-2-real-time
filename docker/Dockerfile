@@ -43,6 +43,17 @@ WORKDIR /workspace
 # RUN cd /workspace/segment-anything-2-real-time/ && pip install -e .
 # RUN cd checkpoints && ./download_ckpts.sh && cd ..
 
+# RealSense SDK installation
+RUN apt-get update && apt-get install -y \
+    lsb-release \
+    && mkdir -p /etc/apt/keyrings \
+    && curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | tee /etc/apt/keyrings/librealsense.pgp > /dev/null \
+    && apt-get install -y apt-transport-https \
+    && echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/librealsense.list \
+    && apt-get update \
+    && apt-get install -y librealsense2-dkms librealsense2-utils \
+    && pip install pyrealsense2
+
 # Set up your work environment
 WORKDIR /workspace/segment-anything-2-real-time
 

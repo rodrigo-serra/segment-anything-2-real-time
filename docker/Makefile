@@ -11,8 +11,7 @@ help:
 # Build the Docker image
 build:
 	@docker build --tag sam2_realtime -f ./Dockerfile ..
-# @docker build -f ./Dockerfile -t samurai_image ..
-# @docker build --no-cache --tag ros:reid -f ./Dockerfile ..
+
 
 # Remove the Docker image
 clean:

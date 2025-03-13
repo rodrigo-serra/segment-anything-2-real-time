@@ -1,10 +1,18 @@
 from flask import Flask, request, jsonify
+import torch
 import numpy as np
 import cv2
 from sam2.build_sam import build_sam2_camera_predictor
 from io import BytesIO
 
 app = Flask(__name__)
+
+torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
+
+if torch.cuda.get_device_properties(0).major >= 8:
+    # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
 
 # Global variables for model and first setup
 predictor = None
