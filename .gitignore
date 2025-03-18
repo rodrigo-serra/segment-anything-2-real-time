@@ -1,4 +1,5 @@
 .vscode/
+yolo/checkpoints/
 .DS_Store
 __pycache__/
 *-checkpoint.ipynb

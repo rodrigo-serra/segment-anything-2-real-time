@@ -35,7 +35,7 @@ SHELL ["conda", "run", "-n", "sam2_realtime", "/bin/bash", "-c"]
 
 # Install PyTorch, TorchVision, and other dependencies
 RUN pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1
-RUN pip install matplotlib opencv-python imageio flask requests ultralytics lap
+RUN pip install matplotlib opencv-python imageio flask requests ultralytics lap shapely
 
 # Install SAMURAI dependencies
 WORKDIR /workspace
