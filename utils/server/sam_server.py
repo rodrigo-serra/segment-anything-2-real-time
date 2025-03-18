@@ -19,7 +19,7 @@ predictor = None
 initialized = False
 
 # Load SAM2 model
-sam2_checkpoint = "../checkpoints/sam2.1_hiera_small.pt"
+sam2_checkpoint = "../../checkpoints/sam2.1_hiera_small.pt"
 model_cfg = "configs/sam2.1/sam2.1_hiera_s.yaml"
 
 

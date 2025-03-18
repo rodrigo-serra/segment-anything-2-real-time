@@ -7,8 +7,8 @@ FLASK_SERVER_URL_INITIALIZE = 'http://localhost:5000/initialize_model'
 FLASK_SERVER_URL_PROCESS = 'http://localhost:5000/process_rgb'
 
 # Path to the video and mask files
-video_path = '../notebooks/videos/gabriel/gabriel.mp4'
-mask_path = '../notebooks/masks/gabriel/gabriel.png'
+video_path = '../../notebooks/videos/gabriel/gabriel.mp4'
+mask_path = '../../notebooks/masks/gabriel/gabriel.png'
 
 # Function to send video frames and mask to the Flask server
 def send_initial_data_to_flask(rgb_frame, mask):
