@@ -24,10 +24,11 @@ def compute_3d_position_from_mask_and_depth(depth_image, person_mask, camera_int
     """
     # Camera intrinsic parameters
     K = camera_intrinsics
-    fx_depth = K[0, 0]
-    fy_depth = K[1, 1]
-    cx_depth = K[0, 2]
-    cy_depth = K[1, 2]
+    fx_depth = K[0][0]  # Focal length in x direction
+    fy_depth = K[1][1]  # Focal length in y direction
+    cx_depth = K[0][2]  # Optical center x-coordinate
+    cy_depth = K[1][2]  # Optical center y-coordinate
+
 
     # 1. Get Bounding Box Around the Mask
     bbox_x, bbox_y, bbox_w, bbox_h = get_bounding_box_from_mask(person_mask)

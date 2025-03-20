@@ -5,7 +5,8 @@ import json, os
 class RealSenseAligner:
     def __init__(self, depth_width=640, depth_height=480, color_width=640, color_height=480, frame_rate=30, clipping_distance_in_meters=1):
         # Cam Intrinsics file path
-        self.cam_params_path = os.path.join(os.path.dirname(__file__), 'cam_params.json') 
+        # cam_params_rgb.json is meant for rgb and aligned_depth_to_color
+        self.cam_params_path = os.path.join(os.path.dirname(__file__), 'cam_params_rgb.json') 
 
         # Initialize RealSense pipeline
         self.pipeline = rs.pipeline()
@@ -84,7 +85,12 @@ class RealSenseAligner:
             with open(self.cam_params_path, 'r') as json_file:
                 data = json.load(json_file)
             
-            K = np.array(data['K'])
+            k = np.array(data['K'])
+            K = [
+                    [k[0], k[1], k[2]],
+                    [k[3], k[4], k[5]],
+                    [k[6], k[7], k[8]]
+                ]
             return K
         
         except FileNotFoundError:
